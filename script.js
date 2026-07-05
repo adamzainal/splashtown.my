@@ -34,6 +34,13 @@ const toggle = document.getElementById('menuToggle');
       body: new FormData(form),
       headers: { 'Accept': 'application/json' }
     })
+    .then(async res => {
+      if (!res.ok) {
+        const errText = await res.text().catch(() => '');
+        throw new Error('Status ' + res.status + ' ' + errText);
+      }
+      return res.json().catch(() => ({}));
+    })
     .then(() => {
       document.getElementById('thanksMsg').style.display = 'block';
       form.reset();
@@ -41,7 +48,8 @@ const toggle = document.getElementById('menuToggle');
       rating = 0;
       setTimeout(() => { document.getElementById('thanksMsg').style.display = 'none'; }, 4000);
     })
-    .catch(() => {
+    .catch((err) => {
+      console.error('Feedback form submit error:', err);
       alert('Maaf, gagal menghantar. Sila cuba lagi atau hubungi kami melalui WhatsApp.');
     })
     .finally(() => {
