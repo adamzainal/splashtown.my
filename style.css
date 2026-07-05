@@ -44,8 +44,8 @@
     -webkit-backdrop-filter:blur(14px);
     border-bottom:1px solid rgba(23,29,61,.06);
   }
-  .nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; }
-  .logo{font-size:2.1rem; font-weight:700; display:flex; align-items:center; gap:8px;}
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; gap:10px; }
+  .logo{font-size:2.1rem; font-weight:700; display:flex; align-items:center; gap:8px; flex-shrink:0; min-width:0;}
   .logo span.dot{
     background:var(--grad-warm); -webkit-background-clip:text; background-clip:text; color:transparent;
   }
@@ -60,6 +60,7 @@
     white-space:nowrap;
   }
   .cta-btn:hover{transform:translateY(-2px); box-shadow:0 14px 28px rgba(255,159,28,.5);}
+  .mobile-only-booking{display:none;}
 
   /* ---------- mobile hamburger nav ---------- */
   .menu-toggle{
@@ -375,13 +376,22 @@
     .contact h2{font-size:1.9rem;}
   }
 
+  /* ---------- responsive: nav overflow guard on narrower phones ---------- */
+  @media (max-width:650px){
+    .cta-btn{display:none;}
+    .mobile-only-booking{
+      display:block !important; margin-top:8px; text-align:center;
+      background:var(--grad-warm); color:white !important; border-radius:999px;
+      font-family:'Fredoka'; font-weight:600; padding:12px 8px;
+    }
+  }
+
   /* ---------- responsive: large phones ---------- */
   @media (max-width:540px){
     .gal-grid{grid-template-columns:1fr;}
     .pkg-price-row{gap:8px;}
     .pkg-specs{flex-wrap:wrap;}
     .wrap{padding:0 18px;}
-    .cta-btn{padding:9px 16px; font-size:.9rem;}
     .logo{font-size:1.7rem;}
   }
 
