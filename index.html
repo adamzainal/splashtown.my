@@ -365,7 +365,7 @@
       <h3>Beri Maklum Balas 💬</h3>
       <p class="note">Dah guna servis kami? Kongsikan pengalaman anda di sini.</p>
       <div class="thanks-msg" id="thanksMsg">Terima kasih! Maklum balas anda telah diterima. 🎉</div>
-      <form id="feedbackForm" action="https://formsubmit.co/ajax/imanzainal84@gmail.com" method="POST">
+      <form id="feedbackForm" action="https://api.web3forms.com/submit" method="POST">
         <div class="field">
           <label for="fbName">Nama</label>
           <input type="text" id="fbName" name="Nama" required placeholder="Nama anda">
@@ -391,8 +391,10 @@
           <label for="fbMsg">Maklum balas</label>
           <textarea id="fbMsg" name="Maklum_Balas" rows="3" placeholder="Ceritakan pengalaman anda..." required></textarea>
         </div>
-        <input type="hidden" name="_subject" value="Maklum Balas Baru - SplashTown.my">
-        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="access_key" value="ef66541e-1f58-4b9c-9e3f-cd53c1f56b88">
+        <input type="hidden" name="subject" value="Maklum Balas Baru - SplashTown.my">
+        <input type="hidden" name="from_name" value="SplashTown.my Website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <button type="submit" class="submit-btn">Hantar Maklum Balas</button>
       </form>
     </div>

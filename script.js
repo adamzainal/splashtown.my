@@ -34,14 +34,11 @@ const toggle = document.getElementById('menuToggle');
       body: new FormData(form),
       headers: { 'Accept': 'application/json' }
     })
-    .then(async res => {
-      if (!res.ok) {
-        const errText = await res.text().catch(() => '');
-        throw new Error('Status ' + res.status + ' ' + errText);
+    .then(res => res.json())
+    .then(data => {
+      if (!data.success) {
+        throw new Error(data.message || 'Unknown error');
       }
-      return res.json().catch(() => ({}));
-    })
-    .then(() => {
       document.getElementById('thanksMsg').style.display = 'block';
       form.reset();
       stars.forEach(s => s.classList.remove('active'));
